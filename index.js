@@ -348,7 +348,7 @@ In HTML, every artist and associated content uses the following structure:
     <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/starry-night-by-vincent-van-gogh-vincent-van-gogh.jpg"/>
 </div>
 <div class = "name">
-   <a href="https://en.wikipedia.org/wiki/Vincent_van_Gogh"> Vincent Van Gogh</a>
+<a href="https://en.wikipedia.org/wiki/Vincent_van_Gogh"> Vincent Van Gogh</a>
 </div>
 <div class = "bio">Vincent Willem van Gogh (Dutch: [ˈvɪnsɛnt ˈʋɪləm vɑŋ ˈɣɔx] (listen); 30 March 1853 – 29 July 1890) was a Dutch Post-Impressionist painter who is among the most famous and influential figures in the history of Western art. In just over a decade he created about 2,100 artworks, including around 860 oil paintings, most of them in the last two years of his life. They include landscapes, still lifes, portraits and self-portraits, and are characterised by bold colours and dramatic, impulsive and expressive brushwork that contributed to the foundations of modern art. However, he was not commercially successful, and his suicide at 37 followed years of mental illness and poverty.</div>
 </div>
@@ -359,9 +359,17 @@ The function should console.log 50 chunks of HTML code that match the structure 
 
 ‼️ You do **NOT** need to get these to display on your page, but you can copy and paste the result into your HTML file if you'd like to see what that would look like. */
 
-function getHTML(/* Code here */){
+const convert_csv_to_json = function(string, delimiter = `,`){
+  return string.slice/*create a string slice of the csv, from beginning to line break, the titles/categories*/(0, string.indexOf(`\n`)).split/*split that slice at the delimiters, creating an array containing each title*/(delimiter);
+  return `this function is under development`;
+};
 
-    /* Code here */
+
+function getHTML(data){
+
+for(let index in data){
+  console.log(data[index].name)
+}
 
   }
 
