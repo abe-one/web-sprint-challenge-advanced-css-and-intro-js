@@ -185,11 +185,11 @@ button:hover{
     }
 
     .artist a{
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 
     .artist .bio{
-        font-size: .8rem;
+        font-size: 1rem;
         line-height: 1;
     }
 
@@ -198,3 +198,6 @@ button:hover{
         width: auto;
     }
 };
+
+/* pending tablet 800px */
+
