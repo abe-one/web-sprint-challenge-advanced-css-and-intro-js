@@ -280,9 +280,10 @@ function get20s(arr){
  
  For example, if removeArtist is invoked with the artists array and the number 0, it will remove Amedeo Modigliani from our dataset and return the number 19. */
 
-function removeArtist(/*Your Code Here*/){
-   /*Your Code Here*/
-}
+function removeArtist(arr, index){
+   arr.splice(index, 1);
+   return arr.length;
+};
    
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -301,9 +302,18 @@ Use addArtist to do the following:
 
 Example: addArtist(artists) should return the artists array with the above object added to the end of the array. */
 
-function addArtist(/*Your Code Here*/){
-    /*Your Code Here*/
-  }
+function addArtist(arr){
+    arr.push(
+      {
+        id: 20,
+        name: `abe-one`,
+        year: `1991 - current day`,
+        nationality: `American`,
+        bio: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. At natus veritatis, enim, id deleniti voluptas sequi eos repudiandae, sit a cupiditate quidem. Modi iste sequi magnam laborum temporibus et ipsam?`
+      }
+    );
+    return arr;
+  };
 
   
 
