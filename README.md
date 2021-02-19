@@ -23,10 +23,19 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 
 Please answer the following questions below, you may edit the readme file to include your answers below the question.
 
-1. How would you describe acessibility on the web to someone new to programming?
+1. How would you describe accessibility on the web to someone new to programming?
+    Accessibility on the web refers to the build practices which in alone or in tandem with browser/device settings, allow webpages and apps to useable, or accessible, to people with special needs or disabilities.
+
 2. Talk about 3 different things you can do to ensure your website is accessible. 
+    2.1. Use semantic language so that screen readers can parse and communicate the page layout allowing users of such to navigate the site.
+    2.2. Use clear language in the page contents avoiding unnecessary dashes, abbreviation, acronyms, slangs. Again for screen readers, but also for people with other disabilities, readers with a different first language, children, anyone wanting a clear experience.
+    2.3. Always provide alt attributes for images and make them descriptive for screen readers.
+
 3. How would you explain the concept of a variable to someone new to programming?
+    A variable is like a shorthand for a particular set of data. That data could be a primitive, an array, a function, or just about any other object, even other variables. Anytime you want to use whatever is stored within the variable instead of reinputting the data, you simply input the variable. For example if I assign the array `["igloos", "surfers", "Texas", "dew", "aerodynamic design"]` to variable `cool`, anywhere I want to use that array, I can simply input `cool`. Best of all, I can modify that array by applying any changes I want to make to the variable `cool`.
+
 4. What is the purpose of using functions in code?
+    Because, being reusable, they save time and energy.  Functions are procedures, and more often than not, we follow the same procedures more than once. A function saves us from the time lost rewriting a procedure, and from the risk of errors in the rewriting.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade. 
 
