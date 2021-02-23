@@ -262,7 +262,7 @@ function get20s(arr){
 //   let artists20C = []
 //   for(let i = 0; i < arr.length; i++){
 //     // let bornDied = arr[i].years.split(" - ");
-//     if(arr[i].years.charAt(1) === `9` && arr[i].years.includes(`19`, 3)){
+//     if(arr[i].years.charAt(1) === `9` && arr[i].years.includes(` 19`, 3)){
 //       artists20C.push(arr[i].name);
 //     };
 //   };
@@ -359,9 +359,29 @@ The function should console.log 50 chunks of HTML code that match the structure 
 
 ‼️ You do **NOT** need to get these to display on your page, but you can copy and paste the result into your HTML file if you'd like to see what that would look like. */
 
-const convert_csv_to_json = function(string, delimiter = `,`){
-  return string.slice/*create a string slice of the csv, from beginning to line break, the titles/categories*/(0, string.indexOf(`\n`)).split/*split that slice at the delimiters, creating an array containing each title*/(delimiter);
-  return `this function is under development`;
+const convert_csv_to_obj = function(string, delimiter = `\t`){
+  let keys = string.slice/*#1*/(0, string.indexOf(`\n`)).split/*#2*/(delimiter);
+  // #1: Slice a new string from the csv, starting at the beginning ending at the first line break. This will be the titles/categories.
+  // #2: Split that slice at the delimiters, creating an array containing each title
+  let future_objs_as_arrayed_strings = string.slice(string.indexOf('\n') + 1).split(`\n`);
+  // return future_objs_as_arrayed_strings;
+return future_objs_as_arrayed_strings.map(value => {
+  let obj_values = value.split(delimiter);
+  // return obj_values
+  // .map to take the future_objs string and split each string into an array with each value as an individual string.
+  // At this point obj_values is assigned an array. The array contains each array with each value of the artists as a string.
+  let reducer = function(full_obj, curr_value, index_of_curr_value){
+  full_obj[curr_value] = obj_values[index_of_curr_value];
+  return full_obj;
+};
+  // When invoked in a .reduce, reducer will go through each value in the array being reduced, 
+//   assign the current value being reduced in the array as a key,
+//   whose (key:)value is the obj_values at the same index of the value in the array being reduced.
+//   Essentially, each value in the array being reduced will become a key in the new object with a (key:)value of the data located in the matching index of the obj_values array currently being mapped
+  return keys.reduce(reducer, {});/*Provide the empty object as the initial value for the accumulator, otherwise it'll take the first key, which is a string and idk what happens when assigning `id`[name] = `Amedeo Modilgliani`*/
+  
+});
+  // return `this function is under development :P`;
 };
 
 

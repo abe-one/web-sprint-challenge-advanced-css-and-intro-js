@@ -116,6 +116,9 @@ nav span{
 }	
 .title-container hr{
     width:80%;
+    background-color: light-gray;
+    border: 1px solid lightgray;
+    height: 2px;
 }
 button{
     padding:.8% 3%;
