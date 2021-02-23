@@ -338,6 +338,36 @@ function lotsOfArt(arr){
 
 
 // 🎨🎨 STRETCH 🎨🎨//
+
+const convert_csv_to_obj = function(string, delimiter = `\t`){
+  let keys = string.slice/*#1*/(0, string.indexOf(`\n`)).split/*#2*/(delimiter);
+  // #1: Slice a new string from the csv, starting at the beginning ending at the first line break. This will be the titles/categories.
+  // #2: Split that slice at the delimiters, creating an array containing each title.
+  let future_objs_as_strings_in_array = string.slice(string.indexOf('\n') + 1)/*#1*/.split(`\n`)/*#2*/;
+  // #1: Slice a new string from the csv, starting one character after the first line break.
+  // Split that slice at the delimiter, creating an array containing each dataset as a string.
+return future_objs_as_strings_in_array.map(value => {
+  let obj_values = value.split(delimiter);
+  // .map to take each future_objs string and split each string into an array with each value as an individual string.
+  // Now, each string in the future_objs, has become an array declared as obj_values. The obj_values array contains each artist's value as a string.
+  /*#1*/
+  let reducer = function(full_obj/*accumulator*/, curr_value, index_of_curr_value){
+  /*#2*/full_obj[curr_value] = /*#3*/obj_values[index_of_curr_value];
+  return full_obj;/*#4*/
+};
+  //#1: reducer will go through each value in the array being reduced and perform the following:
+//  #2 Set the current value being reduced in the array as a key in the accumulator
+//  #3 Assign to this new key the value of data in obj_values. The data will be pulled from obj_values at the same index as the index of the value in the array being reduced.
+//   Essentially, each value in the array being reduced will become a key in the new object with a (key:)value of the data located in the matching index of the obj_values array currently being mapped.
+// #4 Return the new object with it's keys (taken from the reduced array) and values (taken from obj_values)
+  return keys.reduce(reducer, {});/*Provide the empty object as the initial value for the accumulator, otherwise it'll take the first key, which is a string and idk what happens when assigning `id`[name] = `Amedeo Modilgliani`, plus we'd lose the first index*/
+  
+});
+};
+
+
+
+
 /* 💪💪💪💪💪💪 STRETCH 1: 💪💪💪💪💪💪 
 Programmatically console.log HTML element structure.
 
@@ -358,31 +388,6 @@ Create a function called `getHTML()` that takes the parameter `data` and uses a 
 The function should console.log 50 chunks of HTML code that match the structure above. 
 
 ‼️ You do **NOT** need to get these to display on your page, but you can copy and paste the result into your HTML file if you'd like to see what that would look like. */
-
-const convert_csv_to_obj = function(string, delimiter = `\t`){
-  let keys = string.slice/*#1*/(0, string.indexOf(`\n`)).split/*#2*/(delimiter);
-  // #1: Slice a new string from the csv, starting at the beginning ending at the first line break. This will be the titles/categories.
-  // #2: Split that slice at the delimiters, creating an array containing each title
-  let future_objs_as_arrayed_strings = string.slice(string.indexOf('\n') + 1).split(`\n`);
-  // return future_objs_as_arrayed_strings;
-return future_objs_as_arrayed_strings.map(value => {
-  let obj_values = value.split(delimiter);
-  // return obj_values
-  // .map to take the future_objs string and split each string into an array with each value as an individual string.
-  // At this point obj_values is assigned an array. The array contains each array with each value of the artists as a string.
-  let reducer = function(full_obj, curr_value, index_of_curr_value){
-  full_obj[curr_value] = obj_values[index_of_curr_value];
-  return full_obj;
-};
-  // When invoked in a .reduce, reducer will go through each value in the array being reduced, 
-//   assign the current value being reduced in the array as a key,
-//   whose (key:)value is the obj_values at the same index of the value in the array being reduced.
-//   Essentially, each value in the array being reduced will become a key in the new object with a (key:)value of the data located in the matching index of the obj_values array currently being mapped
-  return keys.reduce(reducer, {});/*Provide the empty object as the initial value for the accumulator, otherwise it'll take the first key, which is a string and idk what happens when assigning `id`[name] = `Amedeo Modilgliani`*/
-  
-});
-  // return `this function is under development :P`;
-};
 
 
 function getHTML(data){
